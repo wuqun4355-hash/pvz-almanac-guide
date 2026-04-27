@@ -1,4 +1,4 @@
-import { writeFile } from "node:fs/promises";
+import { access, mkdir, writeFile } from "node:fs/promises";
 
 const API = "https://plantsvszombies.wiki.gg/api.php";
 const WIKI_BASE = "https://plantsvszombies.wiki.gg/wiki/";
@@ -282,9 +282,10 @@ async function fetchPages(titles) {
     const chunk = unique.slice(index, index + 45);
     const data = await api({
       action: "query",
-      prop: "revisions",
+      prop: "revisions|pageimages",
       rvprop: "content",
       rvslots: "main",
+      pithumbsize: "180",
       titles: chunk.join("|"),
       redirects: "1",
       format: "json"
@@ -296,7 +297,11 @@ async function fetchPages(titles) {
       const page = pages.find((candidate) => candidate.title === finalTitle);
       if (!page || page.missing) throw new Error(`Missing wiki page: ${requested}`);
       const text = page.revisions?.[0]?.slots?.main?.["*"] || "";
-      const parsed = { title: page.title, fields: parseFields(extractFirstInfobox(text)) };
+      const parsed = {
+        title: page.title,
+        fields: parseFields(extractFirstInfobox(text)),
+        thumbnail: page.thumbnail?.source || ""
+      };
       PAGE_CACHE.set(requested, parsed);
       PAGE_CACHE.set(page.title, parsed);
     }
@@ -308,9 +313,10 @@ async function fetchPage(title) {
   if (PAGE_CACHE.has(title)) return PAGE_CACHE.get(title);
   const data = await api({
     action: "query",
-    prop: "revisions",
+    prop: "revisions|pageimages",
     rvprop: "content",
     rvslots: "main",
+    pithumbsize: "180",
     titles: title,
     redirects: "1",
     format: "json"
@@ -319,7 +325,7 @@ async function fetchPage(title) {
   if (!page || page.missing) throw new Error(`Missing wiki page: ${title}`);
   const text = page.revisions?.[0]?.slots?.main?.["*"] || "";
   const fields = parseFields(extractFirstInfobox(text));
-  const parsed = { title: page.title, fields };
+  const parsed = { title: page.title, fields, thumbnail: page.thumbnail?.source || "" };
   PAGE_CACHE.set(title, parsed);
   PAGE_CACHE.set(page.title, parsed);
   return parsed;
@@ -327,6 +333,70 @@ async function fetchPage(title) {
 
 function statValue(stats, label) {
   return stats.find((item) => item.label === label)?.value || "";
+}
+
+function extensionFrom(url, contentType = "") {
+  const pathname = new URL(url).pathname.toLowerCase();
+  const match = pathname.match(/\.(png|gif|jpe?g|webp)$/i);
+  if (match) return match[1] === "jpeg" ? "jpg" : match[1];
+  if (contentType.includes("gif")) return "gif";
+  if (contentType.includes("webp")) return "webp";
+  if (contentType.includes("jpeg")) return "jpg";
+  return "png";
+}
+
+async function downloadIcon(url, pathBase) {
+  for (const ext of ["png", "gif", "jpg", "jpeg", "webp"]) {
+    const existing = `${pathBase}.${ext}`;
+    try {
+      await access(existing);
+      return existing.replaceAll("\\", "/");
+    } catch {
+      // Keep looking for an already downloaded variant before hitting the network.
+    }
+  }
+  const candidates = [url];
+  if (url.includes("/images/thumb/")) {
+    candidates.push(url.replace("/images/thumb/", "/images/").replace(/\/\d+px-[^/?]+(?=\?)/, ""));
+  }
+  let lastError = null;
+  for (const candidate of candidates) {
+    for (let attempt = 1; attempt <= 3; attempt += 1) {
+      try {
+        const response = await fetch(candidate, { headers: { "User-Agent": USER_AGENT } });
+        if (!response.ok) throw new Error(`Image HTTP ${response.status}: ${candidate}`);
+        const contentType = response.headers.get("content-type") || "";
+        const ext = extensionFrom(response.url || candidate, contentType);
+        const relativePath = `${pathBase}.${ext}`;
+        const bytes = new Uint8Array(await response.arrayBuffer());
+        await writeFile(relativePath, bytes);
+        return relativePath.replaceAll("\\", "/");
+      } catch (error) {
+        lastError = error;
+        await sleep(350 * attempt);
+      }
+    }
+  }
+  throw lastError;
+}
+
+async function localizeIcons(data) {
+  await mkdir("assets/images", { recursive: true });
+  const tasks = [
+    ...data.plants.map((item) => ["plant", item]),
+    ...data.zombies.map((item) => ["zombie", item]),
+    ...data.levels.map((item) => ["level", item])
+  ].filter(([, item]) => item.iconRemote);
+  let cursor = 0;
+  async function worker() {
+    while (cursor < tasks.length) {
+      const [prefix, item] = tasks[cursor];
+      cursor += 1;
+      item.icon = await downloadIcon(item.iconRemote, `assets/images/${prefix}-${item.id}`);
+      delete item.iconRemote;
+    }
+  }
+  await Promise.all(Array.from({ length: 6 }, worker));
 }
 
 async function buildPlants() {
@@ -342,7 +412,8 @@ async function buildPlants() {
       cn: entry.cn,
       role: entry.role,
       tags: entry.tags,
-      icon: fileUrl(imageFile),
+      icon: "",
+      iconRemote: page.thumbnail || fileUrl(imageFile),
       wiki: wikiUrl(page.title),
       summary: entry.guide,
       tips: entry.tips,
@@ -370,7 +441,8 @@ async function buildZombies() {
       en: cleanWiki(page.fields["box title"] || page.fields.title || page.title.replace(" (PvZ)", "")),
       cn: entry.cn,
       role: entry.role,
-      icon: fileUrl(imageFile),
+      icon: "",
+      iconRemote: page.thumbnail || fileUrl(imageFile),
       wiki: wikiUrl(page.title),
       summary: entry.guide,
       counters: entry.counters,
@@ -456,7 +528,8 @@ async function buildLevels() {
         zombies: zombiesText,
         plantList: namesFromField(page.fields.Plant),
         zombieList: namesFromField(page.fields.Zombie),
-        icon: fileUrl(imageFile),
+        icon: "",
+        iconRemote: page.thumbnail || fileUrl(imageFile),
         wiki: wikiUrl(page.title),
         overview: `${worldInfo.cn}的${type}关卡。旗帜数：${flag}。本关的核心是根据场景限制建立稳定阵型，并针对出现僵尸保留合适的救场手段。`,
         tips
@@ -491,6 +564,8 @@ const data = {
   zombies: await buildZombies(),
   levels: await buildLevels()
 };
+
+await localizeIcons(data);
 
 await writeFile(
   "src/data.generated.js",
