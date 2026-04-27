@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PVZ 一代图鉴攻略</title>
+    <link rel="stylesheet" href="src/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">PVZ</div>
+        <div>
+          <p class="eyebrow">Plants vs. Zombies 1 Almanac</p>
+          <h1>植物大战僵尸一代图鉴攻略</h1>
+        </div>
+      </div>
+      <a class="source-pill" href="https://plantsvszombies.wiki.gg/wiki/Plants_(PvZ)" target="_blank" rel="noreferrer">资料源</a>
+    </header>
+
+    <main class="layout">
+      <section class="dashboard" aria-label="图鉴概览">
+        <div class="metric">
+          <span id="plantCount">49</span>
+          <strong>植物</strong>
+        </div>
+        <div class="metric">
+          <span id="zombieCount">27</span>
+          <strong>僵尸</strong>
+        </div>
+        <div class="metric">
+          <span id="levelCount">50</span>
+          <strong>冒险关卡</strong>
+        </div>
+        <div class="metric wide">
+          <span id="visibleCount">0</span>
+          <strong>当前结果</strong>
+        </div>
+      </section>
+
+      <section class="toolbar" aria-label="筛选">
+        <div class="tabs" role="tablist" aria-label="图鉴类型">
+          <button class="tab is-active" type="button" data-view="plants" role="tab" aria-selected="true">植物</button>
+          <button class="tab" type="button" data-view="zombies" role="tab" aria-selected="false">僵尸</button>
+          <button class="tab" type="button" data-view="levels" role="tab" aria-selected="false">关卡</button>
+        </div>
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="搜索名称、属性、攻略">
+        </label>
+        <select id="filterSelect" aria-label="分类筛选"></select>
+      </section>
+
+      <section id="cards" class="cards" aria-live="polite"></section>
+    </main>
+
+    <aside id="detailPanel" class="detail-panel" aria-hidden="true">
+      <div class="detail-backdrop" data-close></div>
+      <article class="detail-card" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+        <button class="icon-button" type="button" data-close aria-label="关闭">×</button>
+        <div id="detailContent"></div>
+      </article>
+    </aside>
+
+    <footer class="footer">
+      <span>Fan-made guide. Plants vs. Zombies belongs to PopCap / EA.</span>
+      <span id="generatedAt"></span>
+    </footer>
+
+    <script src="src/data.generated.js"></script>
+    <script src="src/app.js"></script>
+  </body>
+</html>
