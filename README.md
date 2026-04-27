@@ -5,6 +5,7 @@
 - 49 种植物：阳光、冷却、伤害、耐久、解锁方式和攻略要点
 - 27 种僵尸：生命/韧性、特殊能力、首次出现和反制思路
 - 50 个冒险模式关卡：场景、类型、旗帜、可用植物、出现僵尸、通关奖励和关卡提示
+- 图标资源已缓存到 `assets/images/`，页面不依赖第三方图片热链
 
 ## 使用
 
@@ -19,6 +20,12 @@ node tools/build-data.mjs
 ```
 
 生成结果写入 `src/data.generated.js`。
+
+生成后可用下面的命令导出图片总览检查图：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/make-contact-sheet.ps1
+```
 
 ## 资料来源
 

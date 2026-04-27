@@ -194,6 +194,33 @@ function fileUrl(file) {
   return `${WIKI_BASE}Special:Redirect/file/${encodeURIComponent(normalized)}`;
 }
 
+const IMAGE_CACHE = new Map();
+
+async function resolveImageUrl(file, fallback = "") {
+  if (!file) return fallback;
+  const normalized = file.replace(/^File:/i, "").trim();
+  if (IMAGE_CACHE.has(normalized)) return IMAGE_CACHE.get(normalized);
+  try {
+    const data = await api({
+      action: "query",
+      titles: `File:${normalized}`,
+      prop: "imageinfo",
+      iiprop: "url",
+      iiurlwidth: "180",
+      format: "json"
+    });
+    const page = Object.values(data.query.pages || {})[0];
+    const info = page?.imageinfo?.[0];
+    const url = info?.thumburl || info?.url || fileUrl(normalized) || fallback;
+    IMAGE_CACHE.set(normalized, url);
+    return url;
+  } catch {
+    const url = fileUrl(normalized) || fallback;
+    IMAGE_CACHE.set(normalized, url);
+    return url;
+  }
+}
+
 function extractFirstInfobox(text) {
   const start = text.search(/\{\{Infobox/i);
   if (start < 0) return "";
@@ -406,6 +433,7 @@ async function buildPlants() {
     const page = await fetchPage(entry.title);
     const stats = buildStats(page.fields, plantKeys);
     const imageFile = imageFromField(page.fields.image);
+    const iconRemote = await resolveImageUrl(imageFile, page.thumbnail);
     rows.push({
       id: page.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
       en: cleanWiki(page.fields["box title"] || page.fields.title || page.title.replace(" (PvZ)", "")),
@@ -413,7 +441,7 @@ async function buildPlants() {
       role: entry.role,
       tags: entry.tags,
       icon: "",
-      iconRemote: page.thumbnail || fileUrl(imageFile),
+      iconRemote,
       wiki: wikiUrl(page.title),
       summary: entry.guide,
       tips: entry.tips,
@@ -436,13 +464,14 @@ async function buildZombies() {
     const page = await fetchPage(entry.title);
     const stats = [...buildStats(page.fields, zombieKeys), ...(entry.statOverrides || [])];
     const imageFile = imageFromField(page.fields.image);
+    const iconRemote = await resolveImageUrl(imageFile, page.thumbnail);
     rows.push({
       id: page.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
       en: cleanWiki(page.fields["box title"] || page.fields.title || page.title.replace(" (PvZ)", "")),
       cn: entry.cn,
       role: entry.role,
       icon: "",
-      iconRemote: page.thumbnail || fileUrl(imageFile),
+      iconRemote,
       wiki: wikiUrl(page.title),
       summary: entry.guide,
       counters: entry.counters,
@@ -509,6 +538,7 @@ async function buildLevels() {
       const plantsText = cleanWiki(page.fields.Plant || "");
       const zombiesText = cleanWiki(page.fields.Zombie || "");
       const imageFile = imageFromField(page.fields.image);
+      const iconRemote = await resolveImageUrl(imageFile, page.thumbnail);
       const tips = [
         worldInfo.advice,
         typeTip(type),
@@ -529,7 +559,7 @@ async function buildLevels() {
         plantList: namesFromField(page.fields.Plant),
         zombieList: namesFromField(page.fields.Zombie),
         icon: "",
-        iconRemote: page.thumbnail || fileUrl(imageFile),
+        iconRemote,
         wiki: wikiUrl(page.title),
         overview: `${worldInfo.cn}的${type}关卡。旗帜数：${flag}。本关的核心是根据场景限制建立稳定阵型，并针对出现僵尸保留合适的救场手段。`,
         tips
