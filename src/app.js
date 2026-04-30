@@ -167,7 +167,7 @@
           </div>
           <p class="summary">${escapeHtml(trimText(item.summary))}</p>
           <div class="chips">
-            ${chip(`生命 ${item.quick.health}`, "danger")}
+            ${chip(`生命值 ${item.quick.health}`, "danger")}
             ${chip(`韧性 ${item.quick.toughness}`)}
             ${chip(item.quick.firstSeen)}
           </div>

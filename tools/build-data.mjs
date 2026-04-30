@@ -19,7 +19,7 @@ const PLANT_MANUAL = [
   { title: "Grave Buster (PvZ)", cn: "墓碑吞噬者", role: "清理墓碑", tags: ["夜晚", "功能"], guide: "专门移除夜间草坪的墓碑，减少最终波刷怪点并释放格子。", tips: ["优先吃靠左或阻挡阵型的墓碑。", "吃墓碑期间无防御力，旁边要有火力保护。"] },
   { title: "Hypno-shroom (PvZ)", cn: "魅惑菇", role: "反制转化", tags: ["夜晚", "控制", "一次性"], guide: "被吃后会让僵尸倒戈，越强的僵尸被魅惑价值越高。", tips: ["用在橄榄球、铁桶、巨人前的小鬼等单位上收益更高。", "白天需咖啡豆唤醒，费用会变高，通常只在特殊局面使用。"] },
   { title: "Scaredy-shroom (PvZ)", cn: "胆小菇", role: "夜间远程输出", tags: ["夜晚", "远程"], guide: "低费远程蘑菇，敌人靠近时会缩起来停止攻击。需要前排阻挡保护。", tips: ["放在后两列，前方用坚果、南瓜头或大喷菇挡住近身。", "雾夜视野不足时，搭配路灯花避免被近身偷停火。"] },
-  { title: "Ice-shroom (PvZ)", cn: "寒冰菇", role: "全屏冻结", tags: ["夜晚", "控制", "一次性"], guide: "全屏冰冻加短暂停滞，是对付大波次、巨人和Boss技能的关键按钮。", tips: ["在巨人举小鬼或僵王低头时使用，可以争取巨大输出窗口。", "白天用咖啡豆唤醒后可以作为昂贵但可靠的全屏救场。"] },
+  { title: "Ice-shroom (PvZ)", cn: "寒冰菇", role: "全屏冻结", tags: ["夜晚", "控制", "一次性"], guide: "全屏冰冻加短暂停滞，是对付大波次、巨人和首领技能的关键按钮。", tips: ["在巨人举小鬼或僵王低头时使用，可以争取巨大输出窗口。", "白天用咖啡豆唤醒后可以作为昂贵但可靠的全屏救场。"] },
   { title: "Doom-shroom (PvZ)", cn: "毁灭菇", role: "超大范围爆破", tags: ["夜晚", "爆炸", "一次性"], guide: "范围极大的高伤害爆炸，代价是在原地留下弹坑，短时间内不能种植。", tips: ["用来清最终波或巨人群，尽量放在不影响核心阵型的位置。", "泳池里需要睡莲承载，白天还要咖啡豆，成本要提前算好。"] },
   { title: "Lily Pad (PvZ)", cn: "睡莲", role: "水面承载", tags: ["泳池", "功能"], guide: "泳池关卡必备底座，让大多数陆地植物可以种在水路。", tips: ["先铺水路关键位，再补火力和防御。", "潜水、海豚等水路敌人出现时，睡莲上要尽快有攻击或阻挡。"] },
   { title: "Squash (PvZ)", cn: "窝瓜", role: "近距离秒杀", tags: ["一次性", "爆发"], guide: "低成本高伤害应急植物，会跳起压扁临近目标。开局、省钱和处理高血量单位都很好用。", tips: ["放在僵尸前方或同格附近，别离目标太远。", "可配合寒冰或坚果拖住目标，确保压到高价值单位。"] },
@@ -52,7 +52,7 @@ const PLANT_MANUAL = [
   { title: "Winter Melon (PvZ)", cn: "冰瓜", role: "群体减速溅射", tags: ["升级", "屋顶", "冰冻"], guide: "西瓜投手升级版，高伤害溅射附带减速，是后期最强控场输出之一。", tips: ["优先覆盖高压行，配合其他溅射可让大波次几乎走不动。", "成本很高，通常在经济成型后逐步升级。"] },
   { title: "Gold Magnet", cn: "吸金磁", role: "自动收钱", tags: ["升级", "刷钱"], guide: "磁力菇升级，用来自动吸金币、银币和钻石，主要提升刷钱舒适度。", tips: ["刷钱阵中放在安全区即可。", "它不再承担吸金属装备的战斗职责，别在高压关误替代磁力菇。"] },
   { title: "Spikerock (PvZ)", cn: "钢地刺", role: "高级地面陷阱", tags: ["升级", "反车辆", "耐久"], guide: "地刺升级版，伤害更高、能多次承受车辆或巨人碾压。", tips: ["适合铺在前线长期削血，尤其对冰车和巨人路线有效。", "成本较高，先确保后排输出再升级。"] },
-  { title: "Cob Cannon (PvZ)", cn: "玉米加农炮", role: "手动超远程爆发", tags: ["升级", "手动", "爆炸"], guide: "由两株相邻玉米投手升级，手动发射玉米炮弹，范围伤害极高。", tips: ["需要玩家手动瞄准和管理冷却，适合生存和Boss战。", "占两格且很贵，务必用南瓜头、保护伞和稳定前线保护。"] },
+  { title: "Cob Cannon (PvZ)", cn: "玉米加农炮", role: "手动超远程爆发", tags: ["升级", "手动", "爆炸"], guide: "由两株相邻玉米投手升级，手动发射玉米炮弹，范围伤害极高。", tips: ["需要玩家手动瞄准和管理冷却，适合生存和首领战。", "占两格且很贵，务必用南瓜头、保护伞和稳定前线保护。"] },
   { title: "Imitater (PvZ)", cn: "模仿者", role: "复制植物冷却", tags: ["功能", "复制"], guide: "复制一个植物，让关键植物拥有第二套冷却。常用于双辣椒、双樱桃、双南瓜或双经济。", tips: ["复制一次性救场植物时最直观，能显著提高容错。", "复制高费植物不等于更便宜，阳光压力仍要考虑。"] }
 ];
 
@@ -86,7 +86,7 @@ const ZOMBIE_MANUAL = [
   { title: "Catapult Zombie", cn: "投石车僵尸", role: "后排投掷/碾压", guide: "会向后排投篮球，还能压毁靠前植物，专门破坏屋顶阵型。", counters: ["叶子保护伞可挡篮球。", "地刺、爆发植物和快速集火可处理本体。"] },
   { title: "Gargantuar (PvZ)", cn: "巨人僵尸", role: "超高血量精英", guide: "血量极高，会砸毁植物，半血后投掷小鬼越过防线。", counters: ["多次爆发、冰冻控制、玉米加农炮和钢地刺削血都很重要。", "注意小鬼落点，后排要有补救火力。"] },
   { title: "Imp (PvZ)", cn: "小鬼僵尸", role: "投掷突袭", guide: "通常由巨人投掷到防线后方，血量低但落点危险。", counters: ["后排留一点范围火力或南瓜头保护。", "巨人半血前准备冰冻或爆发可减少投掷压力。"] },
-  { title: "Dr. Zomboss (PvZ)", cn: "僵王博士", role: "最终Boss", guide: "驾驶巨型机器人，召唤僵尸并用冰球、火球等技能压迫屋顶阵型。", counters: ["保存寒冰菇和火爆辣椒，用对应元素清球并在低头时爆发。", "花盆和投手被破坏后要快速补位。"] },
+  { title: "Dr. Zomboss (PvZ)", cn: "僵王博士", role: "最终首领", guide: "驾驶巨型机器人，召唤僵尸并用冰球、火球等技能压迫屋顶阵型。", counters: ["保存寒冰菇和火爆辣椒，用对应元素清球并在低头时爆发。", "花盆和投手被破坏后要快速补位。"] },
   { title: "Giga-gargantuar", cn: "红眼巨人僵尸", role: "隐藏超高血量精英", guide: "比普通巨人更耐打，常见于无尽等高压模式，是阵型上限测试。", counters: ["需要玉米加农炮、冰瓜控制和多重爆发轮换。", "用钢地刺和南瓜头拖延，避免核心输出被连续砸穿。"] }
 ];
 
@@ -118,6 +118,207 @@ const STAT_LABELS = {
   Plant: "可用植物",
   Zombie: "出现僵尸",
   FR: "通关奖励"
+};
+
+const ENTITY_TRANSLATIONS = [
+  ...PLANT_MANUAL.map((item) => [item.title.replace(" (PvZ)", ""), item.cn]),
+  ...ZOMBIE_MANUAL.map((item) => [item.title.replace(" (PvZ)", ""), item.cn]),
+  ["Zombie", "普通僵尸"],
+  ["Explode-o-nut", "爆炸坚果"],
+  ["Watering Can", "浇水壶"],
+  ["Bacon", "培根"],
+  ["Silver Sunflower Trophy", "银向日葵奖杯"],
+  ["Crazy Dave's Car Key", "疯狂戴夫的车钥匙"],
+  ["Suburban Almanac", "图鉴"],
+  ["Empty Seed packet", "空白卡槽"],
+  ["A note from the zombies", "僵尸留下的纸条"],
+  ["A note from Dr. Zomboss", "僵王博士留下的纸条"],
+  ["Shovel", "铲子"],
+  ["Taco", "玉米卷"],
+  ["Note", "纸条"],
+  ["diamond", "钻石"],
+  ["diamonds", "钻石"],
+  ["money bag", "钱袋"]
+].sort((a, b) => b[0].length - a[0].length);
+
+const TEXT_TRANSLATIONS = [
+  [/\btwo after first time\b/gi, "首次通关后为两面"],
+  [/\bthree after first time\b/gi, "首次通关后为三面"],
+  [/\bfour after first time\b/gi, "首次通关后为四面"],
+  [/\bthree\s+钻石/gi, "三颗钻石"],
+  [/\bA\s+钱袋/g, "一个钱袋"],
+  [/\biOS version\b/gi, "iOS 版"],
+  [/\bReplaying:?\b/g, "重玩时："],
+  [/\bSingle use\b/gi, "一次性使用"],
+  [/\bSingle-use\b/gi, "一次性使用"],
+  [/\binstant\b/gi, "立即生效"],
+  [/\bdelayed activation\b/gi, "延迟生效"],
+  [/\bon contact\b/gi, "接触时"],
+  [/\bmust be planted on graves\b/gi, "必须种在墓碑上"],
+  [/\bAll zombies in a small area\b/gi, "小范围内所有僵尸"],
+  [/\bAll zombies in a 1x4 area\b/gi, "前方 1x4 范围内所有僵尸"],
+  [/\bAll zombies that walk over it\b/gi, "所有经过它的僵尸"],
+  [/\bto each affected enemy\b/gi, "对每个受影响敌人"],
+  [/\beach affected enemy\b/gi, "每个受影响敌人"],
+  [/\bVersus Mode\b/gi, "对战模式"],
+  [/\bHeavy Weapon\b/gi, "重型武器"],
+  [/\bJava version\b/gi, "Java 版"],
+  [/\bJava edition only\b/gi, "Java 版限定"],
+  [/\bDSiWare\b/g, "DSiWare 版"],
+  [/\bBeghouled\b/g, "宝石迷阵模式"],
+  [/\bGravestones\b/g, "墓碑"],
+  [/\bGraves\b/g, "墓碑"],
+  [/\bMobile\b/g, "移动版"],
+  [/\bnon-mobile\b/g, "非移动版"],
+  [/\bmobile\b/g, "移动版"],
+  [/\bfirst playthrough\b/gi, "首次通关"],
+  [/\bevery other playthrough\b/gi, "之后每次游玩"],
+  [/\bcan disappear\b/gi, "可能不出现"],
+  [/\bFuture Star\b/g, "未来之星"],
+  [/\bin Great Wall Edition\b/gi, "长城版中"],
+  [/\bAir Raid only\b/gi, "仅空袭模式"],
+  [/\bpurchase for\b/gi, "购买价格"],
+  [/\bbuy it for\b/gi, "购买价格"],
+  [/\bfor \$/gi, "价格 $"],
+  [/\bBetween playing Levels 4-4 and 4-5\b/gi, "第 4-4 关后、第 4-5 关前"],
+  [/\bBeat Adventure Mode\b/gi, "通关冒险模式"],
+  [/\bAdventure Mode\b/gi, "冒险模式"],
+  [/\bTap to arm\b/gi, "点击装填"],
+  [/\btarget area to fire\b/gi, "选择目标区域发射"],
+  [/\bAs the imitated plant\b/gi, "与被模仿植物相同"],
+  [/\bDepends on the imitated plant\b/gi, "取决于被模仿植物"],
+  [/\btransforming\b/gi, "变身中"],
+  [/\btransformation\b/gi, "变身后"],
+  [/\bProduces\b/g, "产生"],
+  [/\blarge\b/gi, "大形态"],
+  [/\bsmall\b/gi, "小形态"],
+  [/\btiles\b/gi, "格"],
+  [/\btile\b/gi, "格"],
+  [/\bagainst\b/gi, "对"],
+  [/\band\b/gi, "和"],
+  [/\bShort range\b/gi, "近距离"],
+  [/\bShort\b/g, "短"],
+  [/\bSingle lane\b/gi, "整行"],
+  [/\bGround only\b/gi, "仅地面"],
+  [/\bground and air\b/gi, "地面和空中"],
+  [/\bGround and air\b/g, "地面和空中"],
+  [/\bground and roof\b/gi, "地面和屋顶"],
+  [/\bair\b/gi, "空中"],
+  [/\broof\b/gi, "屋顶"],
+  [/\bForward and backwards\b/gi, "前后方向"],
+  [/\bbackwards\b/gi, "向后"],
+  [/\b5 directions\b/gi, "五个方向"],
+  [/\blanes\b/gi, "行"],
+  [/\blane\b/gi, "行"],
+  [/\barea\b/gi, "范围"],
+  [/\bhits all zombies that it lands on\b/gi, "压到的所有僵尸"],
+  [/\bNearby zombies\b/gi, "附近僵尸"],
+  [/\bAnywhere on lawn\b/gi, "草坪任意位置"],
+  [/\bNocturnal plants during the day\b/gi, "白天的夜间植物"],
+  [/\bLobbed\b/gi, "抛物线"],
+  [/\bLight\b/g, "轻微"],
+  [/\bHeavy\b/g, "高"],
+  [/\bVery heavy\b/gi, "很高"],
+  [/\bkernel\b/gi, "玉米粒"],
+  [/\bbutter\b/gi, "黄油"],
+  [/\bfor each star\b/gi, "每颗星星"],
+  [/\bfor each spike\b/gi, "每根尖刺"],
+  [/\bfor each pea\b/gi, "每颗豌豆"],
+  [/\bforward\b/gi, "向前"],
+  [/\bbackward\b/gi, "向后"],
+  [/\bonly\b/gi, "限定"],
+  [/\bin\b/gi, "在"],
+  [/\bExtremely High\b/g, "极高"],
+  [/\bVery high\b/gi, "很高"],
+  [/\bHigh\b/g, "高"],
+  [/\bMedium\b/g, "中等"],
+  [/\bLow\b/g, "低"],
+  [/\bNormal\b/g, "普通"],
+  [/\bnormal\b/g, "普通"],
+  [/\bMassive\b/g, "巨大"],
+  [/\bFast\b/g, "快"],
+  [/\bVery slow\b/gi, "很慢"],
+  [/\bSlow\b/g, "慢"],
+  [/\bExtreme\b/g, "极高"],
+  [/\bFlying\b/g, "飞行"],
+  [/\bStraight\b/g, "直线"],
+  [/\bGround\b/g, "地面"],
+  [/\bRoof\b/g, "屋顶"],
+  [/\bPool\b/g, "泳池"],
+  [/\bDay\b/g, "白天"],
+  [/\bNight\b/g, "夜晚"],
+  [/\bFog\b/g, "雾夜"],
+  [/\bRegular\b/g, "常规"],
+  [/\bTutorial\b/g, "教学"],
+  [/\bConveyor-belt level\b/g, "传送带关卡"],
+  [/\bConveyor-belt\b/g, "传送带"],
+  [/\bWall-nut Bowling\b/g, "坚果保龄球"],
+  [/\bBoss battle\b/g, "首领战"],
+  [/\bNone\b/g, "无"],
+  [/\bnone\b/g, "无"],
+  [/\bOne\b/g, "一面"],
+  [/\bone\b/g, "一面"],
+  [/\bTwo\b/g, "两面"],
+  [/\btwo\b/g, "两面"],
+  [/\bThree\b/g, "三面"],
+  [/\bthree\b/g, "三面"],
+  [/\bFour\b/g, "四面"],
+  [/\bfour\b/g, "四面"],
+  [/\bChoice\b/g, "自选"],
+  [/\breplaying\b/gi, "重玩时"],
+  [/\bmost versions\b/g, "多数版本"],
+  [/\bonline\b/g, "网页版"],
+  [/\bSummoned:/g, "召唤："],
+  [/\bAvailable from the start\b/g, "初始可用"],
+  [/\bAfter beating\b/g, "通关后解锁"],
+  [/\bBeating\b/g, "通关"],
+  [/\bAfter completing Adventure Mode\b/g, "完成冒险模式后"],
+  [/\bEndless levels\b/g, "无尽模式"],
+  [/\bfor each pea\b/g, "每颗豌豆"],
+  [/\bpenetrates shields\b/g, "穿透护具"],
+  [/\bimmobilizes zombies\b/g, "定住僵尸"],
+  [/\bslows enemies\b/g, "减速敌人"],
+  [/\bthen\b/g, "随后"],
+  [/\bevery\b/g, "每"],
+  [/\bafter\b/g, "后"],
+  [/\bAfter\b/g, "后"],
+  [/\bseconds\b/g, "秒"],
+  [/\bsecond\b/g, "秒"],
+  [/\bsec\b/g, "秒"],
+  [/\bFirst\b/g, "首次"],
+  [/\bsun\b/g, "阳光"],
+  [/\bshoots\b/g, "发射"],
+  [/\bdamage\b/g, "伤害"]
+];
+
+const ZOMBIE_CORRECTIONS = {
+  "Zombie (PvZ)": { health: "270", toughness: "低", speed: "普通", firstSeen: "第 1-1 关", damage: "普通啃咬：持续啃食植物", special: "无特殊能力", weakness: "基础直线火力即可处理" },
+  "Flag Zombie (PvZ)": { health: "200", toughness: "低", speed: "普通", firstSeen: "第 1-2 关", damage: "普通啃咬：持续啃食植物", special: "波次提示，本体威胁接近普通僵尸", weakness: "按普通僵尸处理，重点准备后续大波" },
+  "Conehead Zombie": { health: "640（路障约 370 + 本体 270）", toughness: "中等", speed: "普通", firstSeen: "第 1-3 关", damage: "普通啃咬：持续啃食植物", special: "路障提供额外护甲", weakness: "提高单行火力，或用土豆雷、窝瓜快速处理" },
+  "Pole Vaulting Zombie": { health: "500", toughness: "中等", speed: "快，跳跃后变普通", firstSeen: "第 1-6 关", damage: "普通啃咬：持续啃食植物", special: "会跳过遇到的第一株植物", weakness: "用低价值植物骗跳，或用高坚果阻挡" },
+  "Buckethead Zombie (PvZ)": { health: "1370（铁桶约 1100 + 本体 270）", toughness: "高", speed: "普通", firstSeen: "第 1-8 关", damage: "普通啃咬：持续啃食植物", special: "铁桶提供大量护甲", weakness: "磁力菇可吸走铁桶；爆炸植物可救急" },
+  "Newspaper Zombie (PvZ)": { health: "420（报纸约 150 + 本体 270）", toughness: "低", speed: "普通，报纸破后加速", firstSeen: "第 2-1 关", damage: "普通啃咬：持续啃食植物", special: "报纸被打掉后会愤怒加速", weakness: "提前集火，配合寒冰或坚果拖住破报后的冲刺" },
+  "Screen Door Zombie (PvZ)": { health: "1370（门板约 1100 + 本体 270）", toughness: "高", speed: "普通", firstSeen: "第 2-3 关", damage: "普通啃咬：持续啃食植物", special: "门板抵挡多数正面投射物", weakness: "磁力菇吸门板；大喷菇、投手、地刺可绕过门板" },
+  "Football Zombie": { health: "1670（头盔约 1400 + 本体 270）", toughness: "很高", speed: "快", firstSeen: "第 2-6 关", damage: "普通啃咬：持续啃食植物", special: "高速重甲冲锋", weakness: "磁力菇吸头盔；寒冰减速后集中火力" },
+  "Dancing Zombie": { health: "500", toughness: "中等", speed: "普通", firstSeen: "第 2-8 关", damage: "普通啃咬：持续啃食植物", special: "召唤伴舞僵尸形成多行压力", weakness: "优先击杀本体，范围伤害能同时清伴舞" },
+  "Backup Dancer (PvZ)": { health: "270", toughness: "低", speed: "普通", firstSeen: "第 2-8 关", damage: "普通啃咬：持续啃食植物", special: "由舞王僵尸召唤", weakness: "处理舞王本体后压力会明显下降" },
+  "Ducky Tube Zombie (PvZ)": { health: "随变体而定；普通鸭子 270，路障/铁桶鸭子按对应护甲计算", toughness: "低到高", speed: "普通", firstSeen: "第 3-1 关", damage: "普通啃咬：持续啃食水路植物", special: "水路单位，可能带路障或铁桶变体", weakness: "水路提前铺输出，缠绕水草可救急" },
+  "Snorkel Zombie (PvZ)": { health: "270", toughness: "低", speed: "普通", firstSeen: "第 3-3 关", damage: "普通啃咬：浮出后啃食植物", special: "潜水时避开多数直线攻击", weakness: "缠绕水草、窝瓜、投手和猫尾草都能有效处理" },
+  "Zomboni": { health: "1160", toughness: "高", speed: "普通", firstSeen: "第 3-6 关", damage: "接触植物时直接碾碎，并留下冰道", special: "制造冰道，冰道会引出雪橇车僵尸小队", weakness: "地刺/钢地刺扎爆车辆；火爆辣椒清车并融化冰道" },
+  "Zombie Bobsled Team": { health: "每名 270，四人合计 1080", toughness: "低", speed: "冰道上快，离开雪橇后变慢", firstSeen: "第 3-6 关", damage: "下车后普通啃咬：持续啃食植物", special: "只会在冰道上成队出现", weakness: "优先用火爆辣椒清冰道，大喷菇可穿透多人" },
+  "Dolphin Rider Zombie": { health: "500", toughness: "中等", speed: "快，跳跃后变慢", firstSeen: "第 3-8 关", damage: "普通啃咬：持续啃食水路植物", special: "跳过水路遇到的第一株阻挡植物", weakness: "高坚果阻止跳跃；缠绕水草可直接拖下水" },
+  "Jack-in-the-Box Zombie": { health: "500", toughness: "中等", speed: "快", firstSeen: "第 4-1 关", damage: "玩偶匣爆炸会直接摧毁附近植物；对被魅惑僵尸约 1800 伤害", special: "玩偶匣可能随机爆炸", weakness: "磁力菇吸走盒子；尽量在远处击杀" },
+  "Balloon Zombie (PvZ)": { health: "290", toughness: "低", speed: "飞行推进", firstSeen: "第 4-3 关", damage: "落地后普通啃咬；若未被击落会直接越过防线", special: "飞行时多数地面攻击无法命中", weakness: "仙人掌、猫尾草可攻击；三叶草可一次性吹走" },
+  "Digger Zombie (PvZ)": { health: "370", toughness: "中等", speed: "地下快，出土后慢", firstSeen: "第 4-6 关", damage: "从后排啃食植物", special: "从地下钻到最左侧再反向进攻", weakness: "裂荚射手、杨桃、忧郁菇可反打后排；磁力菇吸镐" },
+  "Pogo Zombie": { health: "340", toughness: "中等", speed: "跳跃推进", firstSeen: "第 4-8 关", damage: "普通啃咬：持续啃食植物", special: "连续跳过普通植物", weakness: "高坚果阻止跳跃；磁力菇吸走跳杆" },
+  "Zombie Yeti (PvZ)": { health: "1350", toughness: "高", speed: "受伤后逃跑", firstSeen: "第 4-10 关（完成冒险模式后）", damage: "普通啃咬：持续啃食植物", special: "稀有出现，受伤一段时间后会逃跑", weakness: "发现后立刻集中火力，寒冰减速能延长击杀窗口" },
+  "Bungee Zombie": { health: "450", toughness: "中等", speed: "空降", firstSeen: "第 5-1 关", damage: "不啃咬，主要威胁是偷走植物或空投僵尸", special: "从空中偷植物/投放僵尸", weakness: "叶子保护伞保护周围植物；玉米加农炮不会被偷" },
+  "Ladder Zombie": { health: "1000（梯子约 500 + 本体 500）", toughness: "中等", speed: "持梯时快，架梯后变普通", firstSeen: "第 5-3 关", damage: "普通啃咬：持续啃食植物", special: "给坚果类植物架梯，让后续僵尸越过", weakness: "磁力菇吸梯子；投手、大喷菇、地刺可绕过梯子" },
+  "Catapult Zombie": { health: "660", toughness: "中等", speed: "慢", firstSeen: "第 5-6 关", damage: "篮球每次约 75 伤害；车辆接触植物时碾碎", special: "从后方投篮球攻击后排植物", weakness: "叶子保护伞挡篮球；地刺/钢地刺扎爆车辆" },
+  "Gargantuar (PvZ)": { health: "3000", toughness: "极高", speed: "慢", firstSeen: "第 5-8 关", damage: "棒击会直接砸毁前方植物；半血后投掷小鬼", special: "超高血量精英，能越过前排投小鬼", weakness: "多次爆炸、寒冰控制、玉米加农炮、钢地刺轮换处理" },
+  "Imp (PvZ)": { health: "200", toughness: "低", speed: "普通", firstSeen: "第 5-8 关", damage: "普通啃咬：持续啃食植物", special: "常由巨人投到防线后方", weakness: "后排留范围火力或南瓜头保护；提前压低巨人血量窗口" },
+  "Dr. Zomboss (PvZ)": { health: "首次 40000；重玩 60000", toughness: "极高", speed: "首领", firstSeen: "第 5-10 关", damage: "踩踏直接摧毁植物；火球/冰球造成整行威胁", special: "召唤僵尸、投放蹦极、踩踏并发射火球/冰球", weakness: "寒冰菇灭火球，火爆辣椒灭冰球；低头时集中输出" },
+  "Giga-gargantuar": { health: "6000", toughness: "极高", speed: "慢", firstSeen: "无尽模式", damage: "棒击会直接砸毁前方植物；半血后投掷小鬼", special: "红眼巨人，生命值约为普通巨人的两倍", weakness: "玉米加农炮、冰瓜控制、钢地刺和爆炸轮换" }
 };
 
 const DROP_KEYS = new Set([
@@ -153,7 +354,7 @@ const WORLD_COPY = {
   },
   "Night Roof": {
     cn: "夜晚屋顶",
-    terrain: "最终 Boss 屋顶战，传送带供给固定植物。",
+    terrain: "最终首领屋顶战，传送带供给固定植物。",
     advice: "根据僵王博士动作保存寒冰菇和火爆辣椒，低头时集中火力输出。"
   }
 };
@@ -286,6 +487,77 @@ function cleanWiki(value = "") {
   return text.trim();
 }
 
+function replaceEntityNames(text) {
+  let output = text;
+  for (const [en, cn] of ENTITY_TRANSLATIONS) {
+    output = output.replace(new RegExp(`\\b${en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "g"), cn);
+  }
+  return output;
+}
+
+function localizeText(value = "") {
+  let text = cleanWiki(value);
+  text = replaceEntityNames(text);
+  text = text.replace(/\bLevel ([1-5]-[1-9]0?)\b/g, "第 $1 关");
+  text = text.replace(/\b(\d+(?:\.\d+)?) seconds?\b/g, "$1 秒");
+  text = text.replace(/\b(\d+(?:\.\d+)?) sec\b/g, "$1 秒");
+  text = text.replace(/\(([^)]*)\)/g, (match, inner) => `（${inner}）`);
+  for (const [pattern, replacement] of TEXT_TRANSLATIONS) {
+    text = text.replace(pattern, replacement);
+  }
+  text = text.replace(/坚果墙 Bowling/g, "坚果保龄球");
+  text = text.replace(/Whack a 普通僵尸/g, "锤僵尸");
+  text = text.replace(/Big Trouble Little 普通僵尸/g, "小僵尸大麻烦");
+  text = text.replace(/Vasebreaker/g, "砸罐子");
+  text = text.replace(/重玩时：\s*:/g, "重玩时：");
+  text = text.replace(/重玩时：，/g, "重玩时：");
+  text = text.replace(/三面\s+钻石/g, "三颗钻石");
+  text = text.replace(/A\s+钱袋/g, "一个钱袋");
+  text = text.replace(/召唤：\s+/g, "召唤：");
+  text = text.replace(/Boss/g, "首领");
+  text = text.replace(/\$\s*/g, "$");
+  text = text.replace(/to 每 affected enemy/g, "对每个受影响敌人");
+  text = text.replace(/首次通关 和 移动版/g, "首次通关及移动版");
+  text = text.replace(/之后每次游玩 on non-移动版/g, "非移动版重玩时");
+  text = text.replace(/on 非移动版/g, "非移动版");
+  text = text.replace(/之后每次游玩 非移动版/g, "非移动版重玩时");
+  text = text.replace(/通关后解锁 第 ([1-5]-[0-9]+) 关/g, "通关第 $1 关后解锁");
+  text = text.replace(/后 第 ([1-5]-[0-9]+) 关/g, "第 $1 关后");
+  text = text.replace(/后 第 ([1-5]-[0-9]+)/g, "第 $1 关后");
+  text = text.replace(/通关 第/g, "通关第");
+  text = text.replace(/通关 冒险模式/g, "通关冒险模式");
+  text = text.replace(/通关冒险模式，随后购买价格/g, "通关冒险模式后可购买，价格");
+  text = text.replace(/通关冒险模式，价格/g, "通关冒险模式后可购买，价格");
+  text = text.replace(/通关冒险模式，\$/g, "通关冒险模式后可购买，价格 $");
+  text = text.replace(/第 ([1-5]-[0-9]+) 关后、第 ([1-5]-[0-9]+) 关前 价格/g, "第 $1 关后至第 $2 关前可购买，价格");
+  text = text.replace(/通关第 ([1-5]-[0-9]+) 关 价格/g, "通关第 $1 关后可购买，价格");
+  text = text.replace(/通关第 ([1-5]-[0-9]+) 关，\$/g, "通关第 $1 关后可购买，价格 $");
+  text = text.replace(/第 ([1-5]-[0-9]+) 关后，\$/g, "第 $1 关后可购买，价格 $");
+  text = text.replace(/随后 购买价格/g, "随后购买价格");
+  text = text.replace(/ 和 /g, "和");
+  text = text.replace(/伤害 对每个受影响敌人/g, "伤害，作用于每个受影响敌人");
+  text = text.replace(/后 变身后/g, "变身后");
+  text = text.replace(/,\s*/g, "，");
+  text = text.replace(/\s*，\s*/g, "，");
+  text = text.replace(/，or\s+/gi, "，或");
+  text = text.replace(/（or\s+/gi, "（或");
+  text = text.replace(/\bor\b/gi, "或");
+  text = text.replace(/(\d)\s*x\s*(\d)/gi, "$1×$2");
+  text = text.replace(/\bx(\d)/gi, "×$1");
+  text = text.replace(/，(?=（)/g, "");
+  text = text.replace(/\$(\d+)，(\d{3})/g, (_match, major, minor) => `$${major},${minor}`);
+  text = text.replace(/通关冒险模式，随后购买价格/g, "通关冒险模式后可购买，价格");
+  text = text.replace(/通关冒险模式，价格/g, "通关冒险模式后可购买，价格");
+  text = text.replace(/通关冒险模式，\$/g, "通关冒险模式后可购买，价格 $");
+  text = text.replace(/通关第 ([1-5]-[0-9]+) 关，\$/g, "通关第 $1 关后可购买，价格 $");
+  text = text.replace(/第 ([1-5]-[0-9]+) 关后，\$/g, "第 $1 关后可购买，价格 $");
+  text = text.replace(/（首次通关及移动版），寒冰菇，（非移动版重玩时）（移动版）自选/g, "（首次通关及移动版）；寒冰菇（非移动版重玩时）；移动版可自选");
+  text = text.replace(/\s+（/g, "（");
+  text = text.replace(/）\s+/g, "）");
+  text = text.replace(/\s{2,}/g, " ");
+  return text.trim();
+}
+
 function imageFromField(value = "") {
   const text = String(value);
   const galleryMatch = text.match(/([A-Za-z0-9_ .:'()!&-]+\.(?:png|gif|jpe?g|webp))/i);
@@ -297,8 +569,20 @@ function buildStats(fields, allowedKeys = null) {
   return Object.entries(fields)
     .filter(([key]) => !DROP_KEYS.has(key))
     .filter(([key]) => !allowedKeys || allowedKeys.includes(key))
-    .map(([key, raw]) => ({ label: STAT_LABELS[key] || key, value: cleanWiki(raw) }))
+    .map(([key, raw]) => ({ label: STAT_LABELS[key] || key, value: localizeText(raw) }))
     .filter((item) => item.value && item.value !== "-");
+}
+
+function buildZombieStats(correction) {
+  return [
+    { label: "生命值", value: correction.health },
+    { label: "耐久/韧性", value: correction.toughness },
+    { label: "移动速度", value: correction.speed },
+    { label: "主要伤害", value: correction.damage },
+    { label: "特殊能力", value: correction.special },
+    { label: "首次出现", value: correction.firstSeen },
+    { label: "克制要点", value: correction.weakness }
+  ].filter((item) => item.value);
 }
 
 const PAGE_CACHE = new Map();
@@ -458,11 +742,12 @@ async function buildPlants() {
 }
 
 async function buildZombies() {
-  const zombieKeys = ["health", "toughness", "speed", "special", "other special", "damage", "weakness", "other weakness", "first seen", "sun", "brain"];
+  const zombieKeys = ["health", "toughness", "speed", "special", "other special", "damage", "weakness", "other weakness", "first seen"];
   const rows = [];
   for (const entry of ZOMBIE_MANUAL) {
     const page = await fetchPage(entry.title);
-    const stats = [...buildStats(page.fields, zombieKeys), ...(entry.statOverrides || [])];
+    const correction = ZOMBIE_CORRECTIONS[entry.title] || ZOMBIE_CORRECTIONS[page.title];
+    const stats = correction ? buildZombieStats(correction) : [...buildStats(page.fields, zombieKeys), ...(entry.statOverrides || [])];
     const imageFile = imageFromField(page.fields.image);
     const iconRemote = await resolveImageUrl(imageFile, page.thumbnail);
     rows.push({
@@ -479,7 +764,7 @@ async function buildZombies() {
         health: statValue(stats, "生命值") || "见详情",
         toughness: statValue(stats, "耐久/韧性") || "见详情",
         firstSeen: statValue(stats, "首次出现") || "特殊模式",
-        weakness: statValue(stats, "弱点") || statValue(stats, "其他弱点") || "集火/控制"
+        weakness: statValue(stats, "克制要点") || statValue(stats, "弱点") || statValue(stats, "其他弱点") || "集火/控制"
       },
       stats
     });
@@ -488,7 +773,7 @@ async function buildZombies() {
 }
 
 function namesFromField(value = "") {
-  const text = cleanWiki(value)
+  const text = localizeText(value)
     .replace(/\(replaying\)/gi, " replaying")
     .replace(/Summoned:/gi, "Summoned:");
   return text
@@ -507,7 +792,7 @@ function levelCounterTips(zombieText) {
     [/Dolphin|Snorkel|Ducky/i, "水路敌人多时，睡莲上的输出、缠绕水草和高坚果都要提前布置。"],
     [/Bungee|Catapult/i, "蹦极和投石车会打后排，叶子保护伞应覆盖核心植物。"],
     [/Gargantuar|Imp/i, "巨人出现时要保存冰冻、爆炸或玉米加农炮，半血后注意小鬼落点。"],
-    [/Dr\. Zomboss/i, "Boss 低头时集中输出；冰球用辣椒，火球用寒冰菇处理。"]
+    [/Dr\. Zomboss/i, "僵王博士低头时集中输出；冰球用辣椒，火球用寒冰菇处理。"]
   ];
   for (const [pattern, tip] of checks) {
     if (pattern.test(zombieText)) tips.push(tip);
@@ -516,11 +801,11 @@ function levelCounterTips(zombieText) {
 }
 
 function typeTip(type) {
-  if (/Conveyor/i.test(type)) return "传送带关卡不能自选卡牌，重点是不要囤太多植物，及时把免费资源转成场上防线。";
-  if (/Tutorial/i.test(type)) return "教学关压力较低，重点是理解新机制并保持每行至少有基础火力。";
-  if (/Bowling/i.test(type)) return "保龄球式关卡要利用反弹和爆炸坚果清群，优先瞄准密集行。";
-  if (/Last Stand/i.test(type)) return "固定阳光布阵关要先想好整局阵型，开局布置比临场操作更重要。";
-  if (/Boss/i.test(type)) return "Boss 关的关键是留技能、补花盆，并在僵王博士低头时打出爆发。";
+  if (/Conveyor|传送带/i.test(type)) return "传送带关卡不能自选卡牌，重点是不要囤太多植物，及时把免费资源转成场上防线。";
+  if (/Tutorial|教学/i.test(type)) return "教学关压力较低，重点是理解新机制并保持每行至少有基础火力。";
+  if (/Bowling|保龄球/i.test(type)) return "保龄球式关卡要利用反弹和爆炸坚果清群，优先瞄准密集行。";
+  if (/Last Stand|坚不可摧/i.test(type)) return "固定阳光布阵关要先想好整局阵型，开局布置比临场操作更重要。";
+  if (/Boss|首领|战/i.test(type)) return "首领关的关键是留技能、补花盆，并在僵王博士低头时打出爆发。";
   return "常规选卡关要平衡经济、主火力、前排和至少一个救场植物。";
 }
 
@@ -532,22 +817,23 @@ async function buildLevels() {
       const page = await fetchPage(`Level ${code}`);
       const loc = cleanWiki(page.fields.Loc || "");
       const worldInfo = WORLD_COPY[loc] || { cn: loc || "未知场景", terrain: "详见关卡页。", advice: "根据本关僵尸组合调整火力和救场植物。" };
-      const type = cleanWiki(page.fields.Type || "常规");
-      const flag = cleanWiki(page.fields.Flag || "未标注");
-      const reward = cleanWiki(page.fields.FR || "无新奖励");
-      const plantsText = cleanWiki(page.fields.Plant || "");
-      const zombiesText = cleanWiki(page.fields.Zombie || "");
+      const type = localizeText(page.fields.Type || "常规");
+      const flag = localizeText(page.fields.Flag || "未标注");
+      const reward = localizeText(page.fields.FR || "无新奖励");
+      const plantsText = localizeText(page.fields.Plant || "");
+      const zombiesRaw = cleanWiki(page.fields.Zombie || "");
+      const zombiesText = localizeText(page.fields.Zombie || "");
       const imageFile = imageFromField(page.fields.image);
       const iconRemote = await resolveImageUrl(imageFile, page.thumbnail);
       const tips = [
         worldInfo.advice,
         typeTip(type),
         reward && reward !== "无新奖励" ? `通关奖励/解锁：${reward}。围绕新植物复盘前一关，会更容易理解下一关设计。` : "",
-        ...levelCounterTips(zombiesText)
+        ...levelCounterTips(zombiesRaw)
       ].filter(Boolean);
       rows.push({
         id: code,
-        title: `Level ${code}`,
+        title: `${worldInfo.cn} ${code}`,
         cn: `第 ${world}-${stage} 关`,
         world: worldInfo.cn,
         terrain: worldInfo.terrain,
